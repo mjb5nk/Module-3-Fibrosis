@@ -16,7 +16,7 @@ filenames = [
     r"images/MASK_Sk658 Slobe ch010159.jpg",
 ]
 
-depths = [15, 1000, 3000, 5300, 7000, 9900]
+depths = [45, 810, 15, 5300, 6800, 860]
 
 # 2. Processing (Consolidated into one loop)
 white_percents = []
