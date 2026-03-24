@@ -22,14 +22,15 @@ depths = [45, 810, 15, 5300, 6800, 860]
 # 2. Processing (Consolidated into one loop)
 white_percents = []
 results_log = []
+image_times = []
 
 print(colored("Counts of pixel by color in each image", "yellow"))
 
-# Start timing the image analysis
-start_time = time.time()
-
 # Use zip to iterate through filenames and depths simultaneously
 for i, (fname, depth) in enumerate(zip(filenames, depths)):
+    # Start timing for this image
+    start_time = time.time()
+    
     # Read image in grayscale
     img = cv2.imread(fname, 0)
     
@@ -46,18 +47,23 @@ for i, (fname, depth) in enumerate(zip(filenames, depths)):
     percent = 100 * (white / (white + black))
     white_percents.append(percent)
 
+    # End timing for this image
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    image_times.append(elapsed_time)
+    
     # Print first set of requirements (Pixel Counts)
     print(colored(f"White pixels in image {i}: {white}", "white"))
     print(colored(f"Black pixels in image {i}: {black}", "black"))
+    print(colored(f"Time to analyze image {i}: {elapsed_time:.4f} seconds", "cyan"))
     print()
     
     # Store data for the second print loop to maintain your specific output order
     results_log.append((fname, percent, depth))
 
-# End timing the image analysis
-end_time = time.time()
-elapsed_time = end_time - start_time
-print(colored(f"Time taken to analyze the 6 images: {elapsed_time:.2f} seconds", "green"))
+# Calculate and print total time for all images
+total_time = sum(image_times)
+print(colored(f"Total time to analyze all 6 images: {total_time:.4f} seconds", "green"))
 
 # 3. Print Summary (Percentage and Depth)
 print(colored("Percent white px:", "yellow"))
