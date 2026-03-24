@@ -4,6 +4,7 @@ from scipy.interpolate import interp1d
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import time
 
 
 # 1. Configuration
@@ -23,6 +24,9 @@ white_percents = []
 results_log = []
 
 print(colored("Counts of pixel by color in each image", "yellow"))
+
+# Start timing the image analysis
+start_time = time.time()
 
 # Use zip to iterate through filenames and depths simultaneously
 for i, (fname, depth) in enumerate(zip(filenames, depths)):
@@ -49,6 +53,11 @@ for i, (fname, depth) in enumerate(zip(filenames, depths)):
     
     # Store data for the second print loop to maintain your specific output order
     results_log.append((fname, percent, depth))
+
+# End timing the image analysis
+end_time = time.time()
+elapsed_time = end_time - start_time
+print(colored(f"Time taken to analyze the 6 images: {elapsed_time:.2f} seconds", "green"))
 
 # 3. Print Summary (Percentage and Depth)
 print(colored("Percent white px:", "yellow"))
