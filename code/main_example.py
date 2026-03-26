@@ -9,12 +9,12 @@ import time
 
 # 1. Configuration
 filenames = [
-    r"images/MASK_Sk658 Llobe ch010017.jpg",
-    r"images/MASK_Sk658 Llobe ch010071.jpg",
-    r"images/MASK_Sk658 Llobe ch010039.jpg",
-    r"images/MASK_Sk658 Slobe ch010110.jpg",
-    r"images/MASK_Sk658 Slobe ch010126.jpg",
-    r"images/MASK_Sk658 Slobe ch010159.jpg",
+    r"Module-3-Fibrosis/images/MASK_Sk658 Llobe ch010017.jpg",
+    r"Module-3-Fibrosis/images/MASK_Sk658 Llobe ch010071.jpg",
+    r"Module-3-Fibrosis/images/MASK_Sk658 Llobe ch010039.jpg",
+    r"Module-3-Fibrosis/images/MASK_Sk658 Slobe ch010110.jpg",
+    r"Module-3-Fibrosis/images/MASK_Sk658 Slobe ch010126.jpg",
+    r"Module-3-Fibrosis/images/MASK_Sk658 Slobe ch010159.jpg",
 ]
 
 depths = [45, 810, 15, 5300, 6800, 860]
